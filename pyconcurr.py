@@ -5,9 +5,9 @@ import sys
 import time
 
 def task_queue(task, iterator, concurrency=10):
-"""
-Одовреммено выполняются функции ввода вывода task c аргументами из iterator
-"""
+  """
+  Одовреммено выполняются функции ввода вывода task c аргументами из iterator
+  """
 
   def submit():
     try:

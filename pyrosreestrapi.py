@@ -12,9 +12,9 @@ import sys
 
 
 class CNRequest:
-"""
-Тело запроса
-"""
+  """
+  Тело запроса
+  """
   def __init__(self, street, house, apartment, address = ''):
     self.address = address
     self.street = street
@@ -30,17 +30,17 @@ class CNRequest:
            
 		   
   def get_cnresponse(self):
-"""
-Возвращает объект ответа
-"""  
+    """
+    Возвращает объект ответа
+    """  
     self.response = CNResponse(self) 
     return self.response
 
 	
 class CNResponse:
-"""
-Тело ответа (запрос производится при инициализации объекта)
-"""
+  """
+  Тело ответа (запрос производится при инициализации объекта)
+  """
   def __init__(self, CNRequest):
     self.CNRequest = CNRequest
     headers = {"Content-type": "application/json", "Accept": "application/json"}
@@ -62,9 +62,9 @@ class CNResponse:
  
  
   def write_log(self, file_log=''):
-  """
-  Для тестирования
-  """
+    """
+    Для тестирования
+    """
     message = '{}; {}:{}; {}; {:.2f}'.format(self.CNRequest.params, self.status, self.reason, len(self.response), self.duration)
     if file_log != '':
       with open(file_log, 'a+') as log:
@@ -75,9 +75,9 @@ class CNResponse:
 
 	  
   def write_res(self, file_res=''):
-  """
-  Для тестирования
-  """
+    """
+    Для тестирования
+    """
     messages = ['{}; {}; {}; {}'.format(r['street'], r['house'], r['apartment'], r['objectCn']) for r in self.response]
     if file_res != '':
       with open(file_res, 'a+') as res:
