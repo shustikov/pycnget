@@ -38,20 +38,22 @@ def get_response(CNRequest):
   
 requests = iter(r)
 
-i = 0
-while True:
+if __name__ == '__main__':
+
+  i = 0
+  while True:
   try:
-    get_response(next(requests))
+  	get_response(next(requests))
   except StopIteration:
-    break  
+  	break  
   i += 1
   if i % 50 == 0: print(i)
   
-#stats = task_queue(get_response, requests, 5)  
-
-#while True:
-#  print('\rdone {done}, in work: {delayed}  '.format(**stats), sys.stdout.flush())
-#  if stats['delayed'] == 0:
-#    break
-#  time.sleep(0.2)  
+  #stats = task_queue(get_response, requests, 5)  
+  
+  #while True:
+  #  print('\rdone {done}, in work: {delayed}  '.format(**stats), sys.stdout.flush())
+  #  if stats['delayed'] == 0:
+  #    break
+  #  time.sleep(0.2)  
   
