@@ -20,8 +20,7 @@ def iter(data):
   for i in data:                                                                                    
     street, house, appartment, i = *i[0].split(', '), i[1], i
     yield  CNRequest(street, house, appartment, i)
-
-        
+      
 def get_response(CNRequest):
   msg = ''
   req = CNRequest 
@@ -33,9 +32,7 @@ def get_response(CNRequest):
     msg = e.__class__ 
     log = '{}; {}; {}'.format(req.address[0], req.address[1], msg)
     printlog(log)
-    
-  #print(req.street, req.house, req.apartment, resp.duration, msg)
-  
+    	
 requests = iter(r)
 
 if __name__ == '__main__':
