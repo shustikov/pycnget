@@ -15,6 +15,7 @@ file_ghp0 = 'src/ЖП.csv'                #
 file_ghp1 = 'src/csv ЖП.csv'            #
 file_ghp2 = 'src/csv ЖП2.csv'           #
 file_houses = 'src/houses.csv'          #
+file_resp = 'res/tmp/resp.csv'          #
 
 
 path_log =    dir_current + file_log
@@ -25,7 +26,8 @@ path_ghp0 =   dir_current + file_ghp0
 path_ghp1 =   dir_current + file_ghp1
 path_ghp2 =   dir_current + file_ghp2
 path_houses = dir_current + file_houses
-path_resh =   dir_current + file_resh	
+path_resh =   dir_current + file_resh
+path_resp =   dir_current + file_resp	
 
 
 if __name__ == '__main__':
