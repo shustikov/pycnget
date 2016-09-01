@@ -24,7 +24,7 @@ with open(path_hcn) as f1:
     l = list(map(lambda x:x.strip(), line.split(';')[::2]))
     if l[1] != 'None':
       obj = [(i[1].strip(), l[1]) for i in r1 if i[0] == l[0] and l[1] != 'None']
-      strn = [obj[0][0]] if len(obj) >= 1 else print(l)
+      strn = [obj[0][0]] if len(obj) >= 1 else print(l)  ## to error log
       p = 0
       while True:
         if strn not in pools[p]: 
