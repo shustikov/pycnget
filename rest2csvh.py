@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 """
-Получение .csv файла соответствия адрес:КН
+Получение .csv файла соответствия адрес:КН для зданий
 """
 from paths import *
 import json
@@ -15,22 +15,19 @@ def ratefilt(resp):
   maxrate = 0b00
   for r in resp:
     rate = 0b00
-	if r['apartment'] == None:
-	  #if ' пом' not in r['addressNotes']:     rate += 0b000000010
-	  #if ' ком.' not in r['addressNotes']:    rate += 0b000000010
-	  #if ' к.' not in r['addressNotes']:      rate += 0b000000010
-      if r['srcObject'] == 2:                 rate += 0b01  #
-	  #if ' кв'  not in r['addressNotes']:     rate += 0b000000010
+    if r['apartment'] == 'None':
+      if r['srcObject'] == '2':    rate += 0b01  
       arr += [[rate, r]]
       maxrate = rate if rate > maxrate else maxrate
     
-  return [i[1] for i in arr if i[0] == maxrate]
+  return [i[1] for i in arr] if len(arr) >= 1 else [{'objectCn':'None'}] 
 
   
 def str2data(str):
   """
   python string representation of list and dicts to JSON and then to list of dicts
-  """  
+  """
+  str = str.replace('"11\'"', '11')   
   data = str.replace('"','\\"').replace("'", '"').replace('None', '"None"').strip()
   return json.loads(data)
 
@@ -43,28 +40,28 @@ def printres(msg, path_res=path_res):
 def addrcn(path_resph):
   """
   create file path_resp with adress and CNs (it can be more than 1 CN for 1 apartment)
-  returns amount of notes maded
+  returns amount of notes madded
   """  
-  with open(path_resp) as f:
-    #r = []
-    len = 0
+  with open(path_resph) as f:
+    r = []
+    leng = 0
     for line in f.readlines():
       i = line.split(';')
       apart = i[1]
-      data = str2data(i[2])                                          
-      data = ratefilt(data)
+      data = str2data(i[2])
+      data = ratefilt(data)	
       arr_cn = set(map(lambda dict:dict['objectCn'], data))
       d = {'add':i[0], 'apart':apart, 'data': data, 'arrcn':arr_cn}     
-      #r.append(d)
-      [print('{add}; {apart}; {}'.format(i, **d)) for i in list(d['arrcn'])]
-      len += 1    
+      r.append(d)
+      [printres('{add}; {apart}; {}'.format(i, **d)) for i in list(d['arrcn'])]
+      leng += 1    
     f.close()
-    return len
+	
+  return leng
 
- 
   
 if __name__ == '__main__':
-  print("Сделано записей:" + str(addrcn(path_resp)))
+  print("Обработано записей:" + str(addrcn(path_resph)))
    
   #input("Press enter to exit")    
   
