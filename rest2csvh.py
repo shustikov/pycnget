@@ -46,7 +46,7 @@ def addrcn(path_resph):
     r = []
     leng = 0
     for line in f.readlines():
-      i = line.split(';')
+      i = line.split(';', 2)
       apart = i[1]
       data = str2data(i[2])
       data = ratefilt(data)	
