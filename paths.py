@@ -16,7 +16,9 @@ file_ghp1 = 'src/csv ЖП.csv'            #
 file_ghp2 = 'src/csv ЖП2.csv'           #
 file_houses = 'src/houses.csv'          #
 file_resp = 'res/tmp/resp.csv'			#
-file_resph = 'res/tmp/resph.csv'        #   
+file_resph = 'res/tmp/resph.csv'        #
+file_mkd = 'src/MKD.csv'
+file_hcn =  'res/tmp/housecn.csv'  
 
 
 path_log =    dir_current + file_log
@@ -29,7 +31,9 @@ path_ghp2 =   dir_current + file_ghp2
 path_houses = dir_current + file_houses
 path_resh =   dir_current + file_resh
 path_resp =   dir_current + file_resp
-path_resph =  dir_current + file_resph	
+path_resph =  dir_current + file_resph
+path_mkd = 	  dir_current + file_mkd
+path_hcn =    dir_current + file_hcn
 
 
 if __name__ == '__main__':
