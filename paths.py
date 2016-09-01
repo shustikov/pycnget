@@ -21,6 +21,8 @@ file_mkd = 'src/MKD.csv'
 file_hcn =  'res/tmp/housecn.csv'  
 
 
+path_resf =   dir_current + 'res/'
+
 path_log =    dir_current + file_log
 path_logok =  dir_current + file_logok 
 path_lognok = dir_current + file_lognok  

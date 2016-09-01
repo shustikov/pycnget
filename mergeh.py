@@ -9,8 +9,8 @@ with open(path_mkd) as f1:
   r1 = [(line.split(';', 1)[0], line) for line in f1.readlines()]
   f1.close()
 
-def printres(msg, path_res=path_res):
-  with open(path_res, 'a') as file:
+def printres(msg, i, path_res=path_resf):
+  with open(path_res + 'res-' + str(i) +'.csv' , 'a') as file:
     print(msg, file=file) 
 
 def printlog(msg, path_log=path_log):
@@ -19,10 +19,30 @@ def printlog(msg, path_log=path_log):
     print(msg, file=file) 
 
 with open(path_hcn) as f1:
-  for line in f1.readlines():    #предел
+  pools = [[]]
+  for line in f1.readlines():    #предел 
     l = list(map(lambda x:x.strip(), line.split(';')[::2]))
-    obj = [(i[1].strip(), l[1]) for i in r1 if i[0] == l[0] and l[1] != 'None']
-    printres('{};{}'.format(*obj[0])) if len(obj) >= 1 else None
+    if l[1] != 'None':
+      obj = [(i[1].strip(), l[1]) for i in r1 if i[0] == l[0] and l[1] != 'None']
+      strn = [obj[0][0]] if len(obj) >= 1 else print(l)
+      p = 0
+      while True:
+        if strn not in pools[p]: 
+          pools[p] += [strn]
+          break
+        
+        else:
+          p += 1
+          pools += [[]] if len(pools) <= p else []
+          continue
+    
+    print('{};{}'.format(*obj[0])) if len(obj) >= 1 else None
+
+[print(p, len(pools[p])) for p in range(len(pools))]     
+    
+'''
+если такой дом в пуле 0, то пишем его в пул 1 итд; пул соответсвует итератеру в названии файла результата, это нужно чтобы в каждом файле ФИАС был индивидульный
+'''   
     #try:  
     #   
     #   printres() 
