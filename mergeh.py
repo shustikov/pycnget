@@ -29,6 +29,7 @@ with open(path_hcn) as f1:
       while True:
         if strn not in pools[p]: 
           pools[p] += [strn]
+          printres('{};{}'.format(*obj[0]), p) if len(obj) >= 1 else None
           break
         
         else:
@@ -36,7 +37,6 @@ with open(path_hcn) as f1:
           pools += [[]] if len(pools) <= p else []
           continue
     
-    print('{};{}'.format(*obj[0])) if len(obj) >= 1 else None
 
 [print(p, len(pools[p])) for p in range(len(pools))]     
     
