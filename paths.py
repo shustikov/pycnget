@@ -6,19 +6,19 @@
 import os
 dir_current = os.path.dirname(os.path.abspath(__file__)) + '/'
 
-file_log = 'log/log.txt'				#Общий лог
-file_logok = 'log/logok.txt'            #Лог успешных попыток 
-file_lognok = 'log/lognok.txt'          #Лог неудачных попыток
-file_res = 'res/res.csv'                #Общий файл результата
-file_resh = 'res/cnresh.csv'            #
-file_ghp0 = 'src/ЖП.csv'                #
-file_ghp1 = 'src/csv ЖП.csv'            #
-file_ghp2 = 'src/csv ЖП2.csv'           #
-file_houses = 'src/houses.csv'          #
-file_resp = 'res/tmp/resp.csv'			#
-file_resph = 'res/tmp/resph.csv'        #
-file_mkd = 'src/MKD.csv'
-file_hcn =  'res/tmp/housecn.csv'  
+file_log =    'log/log.txt'			#Общий лог
+file_logok =  'log/logok.txt'       #Лог успешных попыток 
+file_lognok = 'log/lognok.txt'      #Лог неудачных попыток
+file_res =    'res/res.csv'         #Общий файл результата
+file_resh =   'res/cnresh.csv'      #
+file_ghp0 =   'src/ЖП.csv'          #
+file_ghp1 =   'src/csv ЖП.csv'      #
+file_ghp2 =   'src/csv ЖП2.csv'     #
+file_houses = 'src/houses.csv'      #
+file_resp =   'res/tmp/resp.csv'	#
+file_resph =  'res/tmp/resph.csv'   #
+file_mkd =    'src/MKD.csv'
+file_hcn =    'res/tmp/housecn.csv'  
 
 
 path_resf =   dir_current + 'res/'
