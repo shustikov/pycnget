@@ -1,4 +1,4 @@
-# ROSRREESTR API FEATURES
+# ROSREESTR API FEATURES
 
   work with [rosreestr api v0.0.2][1]
   
