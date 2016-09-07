@@ -4,15 +4,15 @@ from pyconcurr import pyconcur
 import sys
 import time
  
-#PATH_RES = path_res
-#PATH_LOG = path_log
+#PATH_RES = path_resph
+#PATH_LOG = path_itlogh
 #PATH_SRC = path_houses
  
-def printres(msg, path_res=path_res):
+def printres(msg, path_res=path_resph):
   with open(path_res, 'a') as file:
     print(msg, file=file) 
 
-def printlog(msg, path_log=path_log):
+def printlog(msg, path_log=path_itlogh):
   with open(path_log, 'a') as file:
     print(msg, file=file) 
 
