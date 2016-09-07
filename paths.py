@@ -5,7 +5,7 @@
 
 import os
 # current app dir
-dс = os.path.dirname(os.path.abspath(__file__)) + '/'
+dc = os.path.dirname(os.path.abspath(__file__)) + '/'
 
 # dirs
 pathf_resap =   dc + 'res/temp/'
@@ -15,25 +15,25 @@ pathf_log	=   dc + 'log/'
 
 # files
 # sourses
-path_ghp0 =   dс + 'src/ЖП.csv'          #
-path_ghp1 =   dс + 'src/csv ЖП.csv'      #
-path_ghp2 =   dс + 'src/csv ЖП2.csv'     #
-path_houses = dс + 'src/houses.csv'      #
-path_resph =  dс + 'src/MKD.csv'		 #	
+path_ghp0 =   dc + 'src/ЖП.csv'          #
+path_ghp1 =   dc + 'src/csv ЖП.csv'      #
+path_ghp2 =   dc + 'src/csv ЖП2.csv'     #
+path_houses = dc + 'src/houses.csv'      #
+path_resph =  dc + 'src/MKD.csv'		 #	
 
 # logs
-path_log =    dс + 'log/log.txt'		 # Общий лог
-path_logok =  dс + 'log/logok.txt'       # Лог успешных попыток 
-path_itlogh = dс + 'log/itlogh.txt'     # Лог неудачных попыток 
+path_log =    dc + 'log/log.txt'		 # Общий лог
+path_logok =  dc + 'log/logok.txt'       # Лог успешных попыток 
+path_itlogh = dc + 'log/itlogh.txt'      # Лог неудачных попыток 
 
 # temp results
-path_res =    dс + 'res/res.csv'         # Общий файл результата (для тестов)
+path_res =    dc + 'res/res.csv'         # Общий файл результата (для тестов)
 
-path_resh =   dс + 'res/tmp/resph.csv'	 # Файл ответов по домам
-path_cnh = 	  dс + 'res/tmp/cnh.csv' 	 # Файл содержащий дома и КНы
+path_resh =   dc + 'res/tmp/resph.csv'	 # Файл ответов по домам
+path_cnh = 	  dc + 'res/tmp/cnh.csv' 	 # Файл содержащий дома и КНы
 
-path_resp =   dс + 'res/tmp/resp.csv'    # Файл ответов по квартирам   
-path_hcn =    dс + 'res/tmp/cn.csv'		 # файл квартиры и КНы	
+path_resp =   dc + 'res/tmp/resp.csv'    # Файл ответов по квартирам   
+path_hcn =    dc + 'res/tmp/cn.csv'		 # файл квартиры и КНы	
 
 
 if __name__ == '__main__':

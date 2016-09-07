@@ -33,11 +33,11 @@ def get_response(CNRequest):
     log = '{}; {}; {}'.format(req.address[0], '', msg)
     printlog(log)
 
-	
+    
 with open(path_houses) as f:
   r = [line.strip().split(';') for line in f.readlines()]
   f.close()
-	
+    
 
 if __name__ == '__main__':
 
@@ -46,9 +46,9 @@ if __name__ == '__main__':
   i = 0
   while True:
     try:
-    	get_response(next(requests))
+      get_response(next(requests))
     except StopIteration:
-    	break  
+      break  
     i += 1
     if i % 50 == 0: print(i)
   
