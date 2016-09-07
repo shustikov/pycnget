@@ -1,6 +1,6 @@
 from paths import *
 from pyrosreestrapi import CNRequest
-from pyconcurr import task_queue
+from pyconcurr import pyconcur
 import sys
 import time
  
@@ -52,11 +52,5 @@ if __name__ == '__main__':
     i += 1
     if i % 50 == 0: print(i)
   
-  #stats = task_queue(get_response, requests, 5)  
-  
-  #while True:
-  #  print('\rdone {done}, in work: {delayed}  '.format(**stats), sys.stdout.flush())
-  #  if stats['delayed'] == 0:
-  #    break
-  #  time.sleep(0.2)  
+  #pyconcur(get_response, requests, 5)
   
