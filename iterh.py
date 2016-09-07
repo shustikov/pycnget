@@ -1,3 +1,7 @@
+"""
+Module contains  response task and iterator for it 
+"""
+
 from paths import *
 from pyrosreestrapi import CNRequest
 from pyconcurr import pyconcur
@@ -19,7 +23,7 @@ def printlog(msg, path_log=path_itlogh):
 def iter(data): 
   for i in data:                                                                                    
     street, house, appartment, i = *i[0].split(', '), '', i
-    yield  CNRequest(street, house, appartment, i)
+    yield  CNRequest(street.split(' ')[0], house, appartment, i)
       
 def get_response(CNRequest):
   msg = ''
