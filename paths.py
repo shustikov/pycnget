@@ -19,7 +19,7 @@ path_ghp0 =   dc + 'src/ЖП.csv'          #
 path_ghp1 =   dc + 'src/csv ЖП.csv'      #
 path_ghp2 =   dc + 'src/csv ЖП2.csv'     #
 path_houses = dc + 'src/houses.csv'      #
-path_resph =  dc + 'src/MKD.csv'		 #	
+path_resh =  dc + 'src/MKD.csv'			 #	
 
 # logs
 path_log =    dc + 'log/log.txt'		 # Общий лог
@@ -29,7 +29,7 @@ path_itlogh = dc + 'log/itlogh.txt'      # Лог неудачных попыт�
 # temp results
 path_res =    dc + 'res/res.csv'         # Общий файл результата (для тестов)
 
-path_resh =   dc + 'res/tmp/resph.csv'	 # Файл ответов по домам
+path_resph =   dc + 'res/tmp/resph.csv'	 # Файл ответов по домам
 path_cnh = 	  dc + 'res/tmp/cnh.csv' 	 # Файл содержащий дома и КНы
 
 path_resp =   dc + 'res/tmp/resp.csv'    # Файл ответов по квартирам   

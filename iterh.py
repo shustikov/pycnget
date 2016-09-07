@@ -2,7 +2,7 @@ from paths import *
 from pyrosreestrapi import CNRequest
 from pyconcurr import pyconcur
 import sys
-import time
+
  
 #PATH_RES = path_resph
 #PATH_LOG = path_itlogh
@@ -40,9 +40,16 @@ with open(path_houses) as f:
     
 
 if __name__ == '__main__':
-
+  
+  from time import time, gmtime, strftime
+  from os import remove
+  
+  remove(path_resph)
+  remove(path_itlogh)
+  
+  t1 = time()
   requests = iter(r)
-
+    
   i = 0
   while True:
     try:
@@ -50,7 +57,18 @@ if __name__ == '__main__':
     except StopIteration:
       break  
     i += 1
-    if i % 50 == 0: print(i)
+    if i % 50 == 0: print(i, time() - t1)
+  
+  # statistic
+  dt = time() - t1
+  str_dt = strftime('%M:%S', gmtime(dt))
+  f = open(path_itlogh, 'r')
+  fails = sum(1 for line in f.readlines())
+  f.close()
+  f = open(path_resph, 'r')
+  resps = sum(1 for line in f.readlines())
+  f.close()
+  print('result in {}, fails: {},  resps: {}'.format(str_dt, fails, resps)) 
   
   #pyconcur(get_response, requests)
   
