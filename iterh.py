@@ -3,11 +3,11 @@ from pyrosreestrapi import CNRequest
 from pyconcurr import task_queue
 import sys
 import time
-
-with open(path_houses) as f:
-  r = [line.strip().split(';') for line in f.readlines()]
-  f.close()
-    
+ 
+#PATH_RES = path_res
+#PATH_LOG = path_log
+#PATH_SRC = path_houses
+ 
 def printres(msg, path_res=path_res):
   with open(path_res, 'a') as file:
     print(msg, file=file) 
@@ -32,10 +32,16 @@ def get_response(CNRequest):
     msg = e.__class__ 
     log = '{}; {}; {}'.format(req.address[0], '', msg)
     printlog(log)
-    	
-requests = iter(r)
+
+	
+with open(path_houses) as f:
+  r = [line.strip().split(';') for line in f.readlines()]
+  f.close()
+	
 
 if __name__ == '__main__':
+
+  requests = iter(r)
 
   i = 0
   while True:
