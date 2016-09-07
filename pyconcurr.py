@@ -107,7 +107,7 @@ def pyconcur(task, iterator, concurrency=10):
     
 if __name__ == '__main__':
   
-  test_street, test_house, test_apartment = 'Сормовское', '1', '11'
+  test_street, test_house, test_apartment = '50', '1', '11'
   test_request = CNRequest(test_street, test_house, test_apartment)
   file_log = 'C:/Users/adm/Desktop/rosreestr/log.txt'
   file_res = 'C:/Users/adm/Desktop/rosreestr/cnres.csv'
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     test_response.write_log()
     test_response.write_res()
      
-  iterator = ((test_request, file_log, file_res) for i in range(100)) 
+  iterator = ((test_request, file_log, file_res) for i in range(1)) 
   pyconcur(task, iterator, concurrency=100)
   
   
