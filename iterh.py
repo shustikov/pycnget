@@ -49,15 +49,16 @@ if __name__ == '__main__':
   
   t1 = time()
   requests = iter(r)
-    
-  i = 0
-  while True:
-    try:
-      get_response(next(requests))
-    except StopIteration:
-      break  
-    i += 1
-    if i % 50 == 0: print(i, time() - t1)
+  
+  pyconcur(get_response, requests, concurrency = 100)  
+  # i = 0
+  # while True:
+    # try:
+      # get_response(next(requests))
+    # except StopIteration:
+      # break  
+    # i += 1
+    # if i % 50 == 0: print(i, time() - t1)
   
   # statistic
   dt = time() - t1
@@ -70,5 +71,5 @@ if __name__ == '__main__':
   f.close()
   print('result in {}, fails: {},  resps: {}'.format(str_dt, fails, resps)) 
   
-  #pyconcur(get_response, requests)
+
   

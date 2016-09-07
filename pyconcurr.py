@@ -70,6 +70,10 @@ def retry(func, attempts=10):
         error = e
         continue
       
+      except TimeoutError as e:
+        error = e
+        continue      
+      
       else:
         break
         
