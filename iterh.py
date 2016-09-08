@@ -15,7 +15,7 @@ import sys
  
 def printres(msg, path_res=path_resph):
   with open(path_res, 'a') as file:
-    print(msg, file=file) 
+    print(msg + '\n', end='', file=file) 
 
 def printlog(msg, path_log=path_itlogh):
   with open(path_log, 'a') as file:

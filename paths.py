@@ -35,7 +35,7 @@ path_resph =   dc + 'res/tmp/resph.csv'	 # Файл ответов по дома
 path_cnh = 	  dc + 'res/tmp/cnh.csv' 	 # Файл содержащий дома и КНы
 
 path_resp =   dc + 'res/tmp/resp.csv'    # Файл ответов по квартирам   
-path_hcn =    dc + 'res/tmp/cn.csv'		 # файл квартиры и КНы	
+path_cn =    dc + 'res/tmp/cn.csv'		 # файл квартиры и КНы	
 
 
 if __name__ == '__main__':

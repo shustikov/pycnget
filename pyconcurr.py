@@ -57,7 +57,7 @@ def task_queue(task, iterator, concurrency=10, on_fail=lambda _: None):
   return result
 
     
-def retry(func, attempts=10):
+def retry(func, attempts=20):
   '''
   Wrap function for HTTP calls. Retries call if URLError. Raise error if all attempts falls.
   '''
