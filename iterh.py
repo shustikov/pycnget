@@ -42,7 +42,7 @@ def get_response(CNRequest):
   req = CNRequest 
   try:  
     resp = CNRequest.get_cnresponse()
-    msg = '{}, {}; {}; {}'.format(req.street, req.house, req.apartment, resp.response) #take address from req.address[0]
+    msg = '{}; {}; {}'.format(req.address[0], req.apartment, resp.response) #take address from req.address[0]
     printres(msg)
   except Exception as e:
     msg = e.__class__ 
@@ -61,8 +61,8 @@ if __name__ == '__main__':
   from time import time, gmtime, strftime
   from os import remove
   
-  remove(path_resph)
-  remove(path_itlogh)
+  remove(path_resph) if os.path.isfile(path_resph) else None
+  remove(path_itlogh) if os.path.isfile(path_itlogh) else None
   
   t1 = time()
   requests = iter(r, streets)
