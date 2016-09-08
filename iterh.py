@@ -11,6 +11,7 @@ import sys
 #PATH_RES = path_resph
 #PATH_LOG = path_itlogh
 #PATH_SRC = path_houses
+#PATH_STREETS = path_streets
  
 def printres(msg, path_res=path_resph):
   with open(path_res, 'a') as file:
@@ -18,12 +19,23 @@ def printres(msg, path_res=path_resph):
 
 def printlog(msg, path_log=path_itlogh):
   with open(path_log, 'a') as file:
-    print(msg, file=file) 
+    print(msg, file=file)
+	
+def street_d(path_streets):
+  with open(path_streets, 'r') as f:
+    streets = {l.split(';')[0]:l.split(';')[1] for l in f.reedlines()}
+
+def street_check(street, streets):	
+  if street in streets.keys:
+    return streets[street]
+	
+  else:
+    return street 	
 
 def iter(data): 
   for i in data:                                                                                    
     street, house, appartment, i = *i[0].split(', '), '', i
-    yield  CNRequest(street.split(' ')[0], house, appartment, i)
+    yield  CNRequest(street.split(' ')[0], house, appartment, i) # street split to street check
       
 def get_response(CNRequest):
   msg = ''
@@ -37,7 +49,7 @@ def get_response(CNRequest):
     log = '{}; {}; {}'.format(req.address[0], '', msg)
     printlog(log)
 
-    
+streets = street_d(path_streets)   
 with open(path_houses) as f:
   r = [line.strip().split(';') for line in f.readlines()]
   f.close()
