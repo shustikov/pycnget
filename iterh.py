@@ -23,33 +23,32 @@ def printlog(msg, path_log=path_itlogh):
 	
 def street_d(path_streets):
   with open(path_streets, 'r') as f:
-    streets = {l.split(';')[0]:l.split(';')[1] for l in f.reedlines()}
+    return {l.strip().split(';')[0]:l.strip().split(';')[1] for l in f.readlines()}
 
 def street_check(street, streets):	
-  if street in streets.keys:
+  if street in streets.keys():
     return streets[street]
 	
   else:
     return street 	
 
-def iter(data): 
+def iter(data, streets): 
   for i in data:                                                                                    
     street, house, appartment, i = *i[0].split(', '), '', i
-    yield  CNRequest(street.split(' ')[0], house, appartment, i) # street split to street check
+    yield  CNRequest(street_check(street, streets), house, appartment, i) 
       
 def get_response(CNRequest):
   msg = ''
   req = CNRequest 
   try:  
     resp = CNRequest.get_cnresponse()
-    msg = '{}, {}; {}; {}'.format(req.street, req.house, req.apartment, resp.response)
+    msg = '{}, {}; {}; {}'.format(req.street, req.house, req.apartment, resp.response) #take address from req.address[0]
     printres(msg)
   except Exception as e:
     msg = e.__class__ 
     log = '{}; {}; {}'.format(req.address[0], '', msg)
     printlog(log)
-
-streets = street_d(path_streets)   
+  
 with open(path_houses) as f:
   r = [line.strip().split(';') for line in f.readlines()]
   f.close()
@@ -64,7 +63,7 @@ if __name__ == '__main__':
   remove(path_itlogh)
   
   t1 = time()
-  requests = iter(r)
+  requests = iter(r, streets)
   
   pyconcur(get_response, requests, concurrency = 100)  
   
