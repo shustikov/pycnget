@@ -1,7 +1,14 @@
 # ROSRREESTR API FUTURES
 
   work with [rosreestr api v0.0.2][1]
-  
+                 
+           |    								         houses                          mkd
+    input  |       						        		 streets      resph              cnh
+           |    										   |			|                 |
+    module |      pyrosreestrapi   ->   pyconcurr   ->   iterh   ->   rest2csvh    ->    mergeh
+           |    										   |			|                 |
+    output |       										 resph		  cnh				res/houses/	
+		   |
   * 
   *
   
@@ -12,3 +19,6 @@
   * houses cn get
   * decrease error 
   * concurrent requests
+  
+  
+  
