@@ -48,6 +48,8 @@ def get_response(CNRequest):
     msg = e.__class__ 
     log = '{}; {}; {}'.format(req.address[0], '', msg)
     printlog(log)
+
+streets = street_d(path_streets) 
   
 with open(path_houses) as f:
   r = [line.strip().split(';') for line in f.readlines()]
