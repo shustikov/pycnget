@@ -42,7 +42,7 @@ def get_response(CNRequest):
   req = CNRequest 
   try:  
     resp = CNRequest.get_cnresponse()
-    msg = '{}; {}; {}'.format(req.address[0], req.apartment, resp.response) #take address from req.address[0]
+    msg = '{}; {}; {}'.format(req.address[0], req.apartment, resp.response)
     printres(msg)
   except Exception as e:
     msg = e.__class__ 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
   t1 = time()
   requests = iter(r, streets)
   
-  pyconcur(get_response, requests, concurrency = 100)  
+ # pyconcur(get_response, requests, concurrency = 100)  
   
   # i = 0
   # while True:

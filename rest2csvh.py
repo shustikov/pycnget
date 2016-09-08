@@ -7,7 +7,7 @@ from paths import *
 import json
 
 #PATH_RES = path_cnh
-#PATH_LOG = 
+#PATH_LOG = path_nocnh   ?
 #PATH_SRC = path_resph
 
 def ratefilt(resp):
@@ -19,7 +19,7 @@ def ratefilt(resp):
   for r in resp:
     rate = 0b00
     if r['apartment'] == 'None':
-      #if r['srcObject'] == '2':    rate += 0b01  
+      if r['srcObject'] == '1':    rate += 0b01  
       arr += [[rate, r]]
       maxrate = rate if rate > maxrate else maxrate
     
@@ -53,17 +53,16 @@ def addrcn(path_resph):
     for line in f.readlines():
       i = line.split(';', 2)
       apart = i[1]
-      data = str2data(i[2])
-      data = ratefilt(data)	
+      data0 = str2data(i[2])
+      data = ratefilt(data0)	
       arr_cn = set(map(lambda dict:dict['objectCn'], data))
       d = {'add':i[0], 'apart':apart, 'data': data, 'arrcn':arr_cn}     
-      print('{add}; {apart}; {}'.format(len(data), **d)) # Отладка
+      print('{add}; {apart}; {}'.format(len(data0), **d)) if data == [{'objectCn':'None'}] else None # Отладка. ? в лог 
       [printres('{add}; {apart}; {}'.format(i, **d)) for i in list(d['arrcn'])]
       leng += 1    
     f.close()
 	
   return leng
-
   
 if __name__ == '__main__':
   from os import remove
