@@ -23,6 +23,7 @@ class CNRequest:
     self.params = json.dumps({
                                 'macroRegionId' : '122000000000',
                                 'regionId' : '122401000000',
+								'settlementId': '122401370000',
                                 'street' : self.street,
                                 'house' : self.house,
                                 'apartment' : self.apartment    
