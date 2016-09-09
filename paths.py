@@ -9,7 +9,7 @@ dc = os.path.dirname(os.path.abspath(__file__)) + '/'
 
 # dirs
 pathf_resap =   dc + 'res/temp/'
-pathf_resh  =   dc + 'res/tmp/houses/'
+pathf_resh  =   dc + 'res/houses/'
 pathf_resap =   dc + 'res/apartments/'
 pathf_log	=   dc + 'log/'
 
