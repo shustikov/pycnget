@@ -20,7 +20,7 @@ path_ghp1 =   dc + 'src/csv ЖП.csv'      #
 path_ghp2 =   dc + 'src/csv ЖП2.csv'     #
 path_streets =dc + 'src/streets.csv' 
 path_houses = dc + 'src/houses.csv'      #
-path_resh =   dc + 'src/MKD.csv'		 #
+path_mkd  =   dc + 'src/MKD.csv'		 #
 	
 
 # logs
