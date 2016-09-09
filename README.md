@@ -5,7 +5,7 @@
            |    								         houses                          mkd
     input  |       						        		 streets      resph              cnh
            |    										   |			|                 |
-    module |      pyrosreestrapi   ->   pyconcurr   ->   iterh   ->   rest2csvh    ->    mergeh
+    module |      pyrosreestrapi   ->   pyconcurr   ->   iterh   ->   json2csvh    ->    mergeh
            |    										   |			|                 |
     output |       										 resph		  cnh				res/houses/	
 		   |
