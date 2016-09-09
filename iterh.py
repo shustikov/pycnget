@@ -67,7 +67,7 @@ if __name__ == '__main__':
   t1 = time()
   requests = iter(r, streets)
   
- # pyconcur(get_response, requests, concurrency = 100)  
+  pyconcur(get_response, requests, concurrency = 100)  
   
   # i = 0
   # while True:
@@ -87,7 +87,4 @@ if __name__ == '__main__':
   f = open(path_resph, 'r')
   resps = sum(1 for line in f.readlines())
   f.close()
-  print('result in {}, fails: {},  resps: {}'.format(str_dt, fails, resps)) 
-  
-
-  
+  print('result in {}, fails: {},  resps: {}'.format(str_dt, fails, resps))    
