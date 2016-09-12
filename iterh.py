@@ -49,12 +49,18 @@ def get_response(CNRequest):
     log = '{}; {}; {}'.format(req.address[0], '', msg)
     printlog(log)
 
-streets = street_d(path_streets) 
-  
-with open(path_houses) as f:
-  r = [line.strip().split(';') for line in f.readlines()]
-  f.close()
+def make_resp_file(path_streets, path_houses, concurrency = 100): 
+	
+  streets = street_d(path_streets) 
     
+  with open(path_houses) as f:
+    r = [line.strip().split(';') for line in f.readlines()]
+    f.close()
+  
+  requests = iter(r, streets)
+  pyconcur(get_response, requests, concurrency)    
+
+  
 
 if __name__ == '__main__':
   
@@ -65,18 +71,9 @@ if __name__ == '__main__':
   remove(path_itlogh) if os.path.isfile(path_itlogh) else None
   
   t1 = time()
-  requests = iter(r, streets)
   
-  pyconcur(get_response, requests, concurrency = 100)  
+  make_resp_file(path_streets, path_houses, concurrency = 100)
   
-  # i = 0
-  # while True:
-    # try:
-      # get_response(next(requests))
-    # except StopIteration:
-      # break  
-    # i += 1
-    # if i % 50 == 0: print(i, time() - t1)
   
   # statistic
   dt = time() - t1
