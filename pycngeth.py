@@ -7,6 +7,7 @@ from os import remove
 from paths import *
 from iterh import make_resp_file
 from json2csvh import addrcn
+from mergeh import mergeh
 
 remove(path_resph) if os.path.isfile(path_resph) else None
 remove(path_itlogh) if os.path.isfile(path_itlogh) else None
@@ -35,7 +36,8 @@ r = sum(1 for line in f.readlines())
 f.close()
 print('Найдено КН: {}'.format(r))
 
+
 mergeh(path_cnh)
 
-
+print('done')
 
