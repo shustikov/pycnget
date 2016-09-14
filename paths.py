@@ -24,12 +24,11 @@ path_mkd  =   dc + 'src/MKD.csv'		 #
 	
 
 # logs
-path_log =    dc + 'log/log.txt'		 # Общий лог
-path_logok =  dc + 'log/logok.txt'       # Лог успешных попыток 
-path_itlogh = dc + 'log/itlogh.txt'      # Лог неудачных попыток 
+
+path_itlogh = dc + 'log/itlogh.txt'      # Лог 
+path_itlog =  dc + 'log/itlog.txt'       # Лог 
 
 # temp results
-path_res =    dc + 'res/res.csv'         # Общий файл результата (для тестов)
 
 path_resph =   dc + 'res/tmp/resph.csv'	 # Файл ответов по домам
 path_cnh = 	  dc + 'res/tmp/cnh.csv' 	 # Файл содержащий дома и КНы
