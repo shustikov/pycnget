@@ -58,6 +58,26 @@ def make_resp_file(path_streets, path_houses, concurrency = 100):
   
 
 if __name__ == '__main__':
-  ...
+  from time import time, gmtime, strftime
+  from os import remove
+  
+  remove(path_resp) if os.path.isfile(path_resp) else None
+  remove(path_itlog) if os.path.isfile(path_itlog) else None
+  
+  t1 = time()
+  
+  make_resp_file(path_streets, path_houses, concurrency = 100)
+  
+  
+  # statistic
+  dt = time() - t1
+  str_dt = strftime('%M:%S', gmtime(dt))
+  f = open(path_itlogh, 'r')
+  fails = sum(1 for line in f.readlines())
+  f.close()
+  f = open(path_resph, 'r')
+  resps = sum(1 for line in f.readlines())
+  f.close()
+  print('result in {}, fails: {},  resps: {}'.format(str_dt, fails, resps))    
   
   
