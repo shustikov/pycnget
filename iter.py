@@ -53,7 +53,7 @@ def make_resp_file(path_streets, path_houses, concurrency = 100):
     r = [line.strip().split(';') for line in f.readlines()]
     f.close()
     	
-  requests = iter(r)
+  requests = iter(r, streets)
   pyconcur(get_response, requests, concurrency)
   
 
@@ -72,10 +72,10 @@ if __name__ == '__main__':
   # statistic
   dt = time() - t1
   str_dt = strftime('%M:%S', gmtime(dt))
-  f = open(path_itlogh, 'r')
+  f = open(path_itlog, 'r')
   fails = sum(1 for line in f.readlines())
   f.close()
-  f = open(path_resph, 'r')
+  f = open(path_resp, 'r')
   resps = sum(1 for line in f.readlines())
   f.close()
   print('result in {}, fails: {},  resps: {}'.format(str_dt, fails, resps))    
