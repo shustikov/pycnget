@@ -18,7 +18,7 @@ def ratefilt(resp):
     if ' пом' not in r['addressNotes']:     rate += 0b1000
     if ' ком.' not in r['addressNotes']:    rate += 0b0100
     if ' к.' not in r['addressNotes']:      rate += 0b0100
-    if r['srcObject'] == 2:                 rate += 0b0010
+    if r['srcObject'] == 1:                 rate += 0b0010
     if ' кв' in r['addressNotes']:          rate += 0b0001
     arr += [[rate, r]]
     maxrate = rate if rate > maxrate else maxrate
@@ -48,17 +48,17 @@ def addrcn(path_resp):
     #r = []
     len = 0
     for line in f.readlines():
-      i = line.split(';')
+      i = line.split(';',2)
       apart = i[1].strip()
-      data = str2data(i[2])                                          
-      data = ratefilt(data)
+      data0 = str2data(i[2])                                          
+      data = ratefilt(data0)
       arr_cn = set(map(lambda dict:dict['objectCn'], data))
       d = {'add':i[0], 'apart':apart, 'data': data, 'arrcn':arr_cn}     
       #r.append(d)
       [printres('{add}; {apart}; {}'.format(i, **d)) for i in list(d['arrcn'])]
-      len += 1    
+      leng += 1    
     f.close()
-    return len
+    return leng
 
  
   
