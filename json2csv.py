@@ -34,7 +34,7 @@ def str2data(str):
   return json.loads(data)
 
   
-def printres(msg, path_res=path_res):
+def printres(msg, path_res=path_cn):
   with open(path_res, 'a') as file:
     print(msg, file=file) 
 
@@ -45,25 +45,35 @@ def addrcn(path_resp):
   returns amount of notes maded
   """  
   with open(path_resp) as f:
-    #r = []
-    len = 0
+    leng = 0
+    err = 0
     for line in f.readlines():
-      i = line.split(';',2)
-      apart = i[1].strip()
-      data0 = str2data(i[2])                                          
-      data = ratefilt(data0)
-      arr_cn = set(map(lambda dict:dict['objectCn'], data))
-      d = {'add':i[0], 'apart':apart, 'data': data, 'arrcn':arr_cn}     
-      #r.append(d)
-      [printres('{add}; {apart}; {}'.format(i, **d)) for i in list(d['arrcn'])]
+      try:
+        i = line.split(';',2)
+        apart = i[1].strip()
+      
+        data0 = str2data(i[2])
+        data = ratefilt(data0)
+        arr_cn = set(map(lambda dict:dict['objectCn'], data))
+        d = {'add':i[0], 'apart':apart, 'data': data, 'arrcn':arr_cn}     
+        print('{add}; {apart}; {}'.format(len(data0), **d)) if data == [{'objectCn':'None'}] else None
+        [printres('{add};{apart}; {}'.format(i, **d)) for i in list(d['arrcn'])]
+      except Exception as e:
+        print(i, e.__class__)
+        err += 1        
       leng += 1    
     f.close()
-    return leng
+  return leng, err
 
  
   
 if __name__ == '__main__':
-  print("Сделано записей:" + str(addrcn(path_resp)))
-   
-  #input("Press enter to exit")    
-  
+  from os import remove
+  remove(path_cn) if os.path.isfile(path_cn) else None
+  leng, err = addrcn(path_resp)
+  print("Обработано записей:" + str(leng) + ", Ошибок:" + str(err)  , end = ', ')
+  f = open(path_cn, 'r')
+  r = sum(1 for line in f.readlines())
+  f.close()
+  print('Найдено КН:{}'.format(r))
+
