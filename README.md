@@ -42,5 +42,5 @@
 ## TODO
 
   * decrease error
-  * merge pycnget and readme for apartments
+  * merge, pycnget and readme for apartments
  
