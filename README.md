@@ -16,7 +16,7 @@
 
 ## Input
   * /src/houses.csv 		list of houses (Чаадаева, 11А)
-  * /src/streets.csv		list of streets (Победы 50 лет;50 Летия Победы)
+  * /src/streets.csv		list of streets (internal street name - GKN/EGRP streetname) (Победы 50 лет;50 Летия Победы)
   * /src/mkd.csv			list for merging CN data with data for gis ghkh (Чаадаева, 11; 13; [data];...[data]; )
   
 ## Output
