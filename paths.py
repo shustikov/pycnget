@@ -4,32 +4,41 @@
 """
 
 import os
-dir_current = os.path.dirname(os.path.abspath(__file__)) + '/'
+# current app dir
+dc = os.path.dirname(os.path.abspath(__file__)) + '/'
 
-file_log = 'log/log.txt'				#Общий лог
-file_logok = 'log/logok.txt'            #Лог успешных попыток 
-file_lognok = 'log/lognok.txt'          #Лог неудачных попыток
-file_res = 'res/res.csv'                #Общий файл результата
-file_resh = 'res/cnresh.csv'            #
-file_ghp0 = 'src/ЖП.csv'                #
-file_ghp1 = 'src/csv ЖП.csv'            #
-file_ghp2 = 'src/csv ЖП2.csv'           #
-file_houses = 'src/houses.csv'          #
-file_resp = 'res/tmp/resp.csv'          #
+# dirs
+pathf_resap =   dc + 'res/temp/'
+pathf_resh  =   dc + 'res/houses/'
+pathf_resap =   dc + 'res/apartments/'
+pathf_log	=   dc + 'log/'
 
+# files
+# sourses
+path_ghp0 =   dc + 'src/ЖП.csv'          #
+path_ghp1 =   dc + 'src/csv ЖП.csv'      #
+path_ghp2 =   dc + 'src/csv ЖП2.csv'     #
+path_streets =dc + 'src/streets.csv' 
+path_houses = dc + 'src/houses.csv'      #
+path_mkd  =   dc + 'src/MKD.csv'		 #
+	
 
-path_log =    dir_current + file_log
-path_logok =  dir_current + file_logok 
-path_lognok = dir_current + file_lognok  
-path_res =    dir_current + file_res
-path_ghp0 =   dir_current + file_ghp0 
-path_ghp1 =   dir_current + file_ghp1
-path_ghp2 =   dir_current + file_ghp2
-path_houses = dir_current + file_houses
-path_resh =   dir_current + file_resh
-path_resp =   dir_current + file_resp	
+# logs
+
+path_itlogh = dc + 'log/itlogh.txt'      # Лог 
+path_itlog =  dc + 'log/itlog.txt'       # Лог 
+
+# temp results
+
+path_resph =   dc + 'res/tmp/resph.csv'	 # Файл ответов по домам
+path_cnh = 	  dc + 'res/tmp/cnh.csv' 	 # Файл содержащий дома и КНы
+
+path_resp =   dc + 'res/tmp/resp.csv'    # Файл ответов по квартирам   
+path_cn =    dc + 'res/tmp/cn.csv'		 # файл квартиры и КНы	
 
 
 if __name__ == '__main__':
   print(path_log)
   input("Press enter to exit ;)")
+  
+  
