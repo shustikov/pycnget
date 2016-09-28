@@ -1,7 +1,11 @@
 # ROSREESTR API FEATURES
 
   work with [rosreestr api v0.0.2][1]
-                 
+
+  files *h.py or *h.csv - needs to work with houses cn only
+
+  scheme of work pycngeth: 
+		
            |    								         houses                          mkd
     input  |       						        		 streets      resph              cnh
            |    										   |			|                 |
@@ -37,13 +41,6 @@
  
 ## TODO
 
-<<<<<<< HEAD
-  * houses cn get
-  * decrease error 
-  * concurrent requests
-=======
   * decrease error
-  
-  
-  
->>>>>>> housecn
+  * merge pycnget and reedme for apartments
+ 
